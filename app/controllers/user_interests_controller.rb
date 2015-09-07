@@ -4,7 +4,8 @@ class UserInterestsController < ApplicationController
   # GET /user_interests
   # GET /user_interests.json
   def index
-    @user_interests = UserInterest.all
+    # Get a list of the current user's company interests
+    @current_user_interests = current_user.user_interests.by_company.paginate(:page => params[:page]).per_page(10)
   end
 
   # GET /user_interests/1
