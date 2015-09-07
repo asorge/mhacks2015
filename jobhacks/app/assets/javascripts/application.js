@@ -12,5 +12,15 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
+//= require jquery_nested_form
+//= require materialize
 //= require turbolinks
 //= require_tree .
+
+$(function(){
+    $(function(){
+      $(".dropdown-button").dropdown({ constrain_width: false });
+      $('select').material_select();
+    });
+});
