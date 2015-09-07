@@ -27,14 +27,10 @@ class UserInterestsController < ApplicationController
   def create
     @user_interest = UserInterest.new(user_interest_params)
 
-    respond_to do |format|
-      if @user_interest.save
-        format.html { redirect_to @user_interest, notice: 'User interest was successfully created.' }
-        format.json { render :show, status: :created, location: @user_interest }
-      else
-        format.html { render :new }
-        format.json { render json: @user_interest.errors, status: :unprocessable_entity }
-      end
+    if @user_interest.save
+      redirect_to user_interest_path, notice: "Your interest for ${@user_interest.company.name} has been saved."
+    else
+      render action: 'new'
     end
   end
 

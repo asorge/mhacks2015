@@ -44,4 +44,3 @@ function onError(error) {
 function getProfileData() {
     IN.API.Raw("/people/~").result(onSuccess).error(onError);
 }
-

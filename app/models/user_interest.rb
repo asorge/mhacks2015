@@ -5,7 +5,7 @@ class UserInterest < ActiveRecord::Base
 
 	# Validations
 	validates_presence_of :rating
-	validates_numericality_of :ratinig, greater_than: 0
+	validates_numericality_of :rating, greater_than: 0
 
 	# Scopes
 	scope :by_company, -> { joins(:company).order('companies.name') }

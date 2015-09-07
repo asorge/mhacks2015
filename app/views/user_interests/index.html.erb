@@ -3,7 +3,7 @@
     <div class="col s12 center">
       <% if @current_user_interests.empty? %>
         <p>
-          You don't have any company interests right now. <%= link_to "Add a company you're interested in", new_user_interest_path %> now!
+          You don't have any company interests right now. <%= link_to "Add a company you're interested in", new_company_path %> now!
         </p>
       <% else %>
         <h4>Your Company Interests</h4>
@@ -26,7 +26,7 @@
                 <td><%= interest.rating %></td>
                 <td>
                   <td><%= link_to 'Edit', edit_user_interest_path(interest) %></td>
-                  <td><%= link_to 'Destroy', user_interest, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                  <td><%= link_to 'Destroy', interest, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                 </td>
               </tr>
             <% end %>

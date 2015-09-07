@@ -1,33 +1,43 @@
-<%= form_for(@company) do |f| %>
-  <% if @company.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@company.errors.count, "error") %> prohibited this company from being saved:</h2>
+<%= simple_nested_form_for @company, :html => { :class => 'form-horizontal' } do |company_form| %>
+  <fieldset>
+    <legend>Add a company you're interested in</legend>
 
-      <ul>
-      <% @company.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <div class="input-field col s12">
+      <%= company_form.input :name %>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :url %><br>
-    <%= f.text_field :url %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
-  </div>
-  <div class="field">
-    <%= f.label :location %><br>
-    <%= f.text_field :location %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="input-field col s12">
+      <%= company_form.input :url, label: "Website" %>
+    </div>
+
+    <div class="input-field col s12">
+      <%= company_form.input :description, input_html: {class: "materialize-textarea"} %>
+    </div>
+
+    <div class="input-field col s12">
+      <%= company_form.input :location %>
+    </div>    
+
+    <%= company_form.simple_fields_for :user_interests do |user_interest_form| %>
+      <div class="fields">
+          <!-- Set the hidden input user id for the new user interest object -->
+          <%= user_interest_form.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
+          
+          <div class="input-field col s12">
+            <%= user_interest_form.input :rating, collection: 1..5, label: "Select your interest level (1 being least interested and 5 being most interested)" %>
+            <label
+          </div>
+      </div>
+    <% end %>
+
+    &nbsp;
+    
+    <!-- buttons -->
+    <div class="form-actions row">
+      <div class="col s12">
+      <%= company_form.submit "Submit", class: 'btn cyan lighten-3' %><br><br>
+        <div class="button"><%= link_to 'Back', home_path, :class => 'btn cyan lighten-3' %></div>
+      </div>
+    </div>
+  </fieldset>
 <% end %>
