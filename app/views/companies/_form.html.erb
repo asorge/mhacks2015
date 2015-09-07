@@ -25,17 +25,16 @@
           
           <div class="input-field col s12">
             <%= user_interest_form.input :rating, collection: 1..5, label: "Select your interest level (1 being least interested and 5 being most interested)" %>
-            <label
           </div>
       </div>
     <% end %>
 
     &nbsp;
-    
+
     <!-- buttons -->
     <div class="form-actions row">
       <div class="col s12">
-      <%= company_form.submit "Submit", class: 'btn cyan lighten-3' %><br><br>
+        <%= company_form.submit "Submit", class: 'btn cyan lighten-3' %><br><br>
         <div class="button"><%= link_to 'Back', home_path, :class => 'btn cyan lighten-3' %></div>
       </div>
     </div>
