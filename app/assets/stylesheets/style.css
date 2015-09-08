@@ -32,15 +32,11 @@ nav {
 div#dashboard {
   position: absolute;
   width: 50%;
-  height: 45%;
+  height: 49%;
   left: 25%;
   border: 1px dotted cyan;
   color: #666;
-  font-size: 3em; }
-  div#dashboard a {
-    text-decoration: none; }
-  div#dashboard a:hover {
-    text-shadow: #555 1px 1px 1px; }
+  font-size: 20px; }
 
 .margin-top-15 {
   margin-top: 15px; }

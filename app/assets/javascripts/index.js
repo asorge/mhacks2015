@@ -72,7 +72,7 @@ function printData(data) {
 	$.each(data, function(key, value) {
 		if (key == "id") {
 			console.log(value);
-			$("#dashboard").append("<div class='waves-effect waves-light btn cyan lighten-3 small grey-text text-darken-3 button'><a href='http://www.linkedin.com/profile/view?id='" + value + "'><h6>open linkedin profile</h6></a></div>");
+			$("#dashboard-button").append("<div class='waves-effect waves-light btn cyan lighten-3 small grey-text text-darken-3 button'><a href='http://www.linkedin.com/profile/view?id='" + value + "'>open linkedin profile</a></div><br><br>");
 		}
 	});
 	
