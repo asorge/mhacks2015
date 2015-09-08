@@ -7,13 +7,10 @@
     scope: r_basicprofile r_emailaddress
   </script>
 
-
-
-    <title>JobHacks</title>
-  	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-    <%= csrf_meta_tags %>
-
+  <title>JobHacks</title>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
 
   </head>
 
@@ -29,16 +26,4 @@
       </div>
     </div>
   </body>
-
-  <footer>
-    <div class="container">
-      <div class="row">
-        <div class="col s12 center">
-          <footer class="page-footer">
-          <%= render 'partials/footer' %>
-          </footer>
-        </div>
-      </div> 
-    </div>
-  </footer>
 </html>
