@@ -1,39 +1,44 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row">
+    <div class="col s12 center">
+      <% if @current_user_applications.empty? %>
+        <p>
+          You don't have any saved applications right now. <%= link_to "Add one", new_job_listing_path %> now!
+        </p>
+      <% else %>
+        <h4>Your Saved Job Applications</h4>
+        <table class="striped centered">
+          <thead>
+            <tr>
+              <th>Company Name</th>
+              <th>Job Listing Title</th>
+              <th>Job Listing URL</th>
+              <th>Job Description</th>
+              <th>Status</th>
+              <th>&nbsp;</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @current_user_applications.each do |application| %>
+              <tr>
+                <td><%= link_to application.job_listing.company.name, "http://#{application.job_listing.company.url}" %></a></td>
+                <td><%= application.job_listing.title %></td>
+                <td><%= link_to application.job_listing.url, "http://#{application.job_listing.url}" %></a></td>
+                <td><%= application.job_listing.description %></td>
+                <td><%= application.status %></td>
+                <td><a class="btn-floating btn-small waves-effect waves-light cyan lighten-3" href="job_listing/<%= application.job_listing_id %>/show"><i class="mdi-action-visibility"></i></a></td>
+                <td><a class="btn-floating btn-small waves-effect waves-light cyan lighten-3" href="job_listing/<%= application.job_listing_id %>/edit"><i class="mdi-image-edit"></i></a></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
 
-<h1>Listing Applications</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Job listing</th>
-      <th>Resume</th>
-      <th>Cover letter</th>
-      <th>Date submitted</th>
-      <th>Status</th>
-      <th>Contact</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @applications.each do |application| %>
-      <tr>
-        <td><%= application.user_id %></td>
-        <td><%= application.job_listing_id %></td>
-        <td><%= application.resume %></td>
-        <td><%= application.cover_letter %></td>
-        <td><%= application.date_submitted %></td>
-        <td><%= application.status %></td>
-        <td><%= application.contact %></td>
-        <td><%= link_to 'Show', application %></td>
-        <td><%= link_to 'Edit', edit_application_path(application) %></td>
-        <td><%= link_to 'Destroy', application, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Application', new_application_path %>
+        <br>
+        <div class="button"><%= link_to 'Add A New Job Application', new_job_listing_path, :class => 'btn cyan lighten-3' %></div>
+        <br>
+        <%= will_paginate @current_user_applications, previous_label: "Previous&nbsp;", next_label: "&nbsp;Next" %>  
+        <br>
+      <% end %>
+    </div>
+  </div>
+</div>

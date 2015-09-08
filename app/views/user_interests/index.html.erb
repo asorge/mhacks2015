@@ -20,7 +20,7 @@
           <tbody>
             <% @current_user_interests.each do |interest| %>
               <tr>
-                <td><%= link_to interest.company.name %></td>
+                <td><%= interest.company.name %></td>
                 <td><%= interest.company.description %></td>
                 <td><%= link_to interest.company.url, "http://#{interest.company.url}" %></a></td>
                 <td><%= interest.rating %></td>

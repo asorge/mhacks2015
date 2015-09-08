@@ -15,6 +15,7 @@ class JobListingsController < ApplicationController
   # GET /job_listings/new
   def new
     @job_listing = JobListing.new
+    @job_listing.applications.build
   end
 
   # GET /job_listings/1/edit
@@ -26,14 +27,10 @@ class JobListingsController < ApplicationController
   def create
     @job_listing = JobListing.new(job_listing_params)
 
-    respond_to do |format|
-      if @job_listing.save
-        format.html { redirect_to @job_listing, notice: 'Job listing was successfully created.' }
-        format.json { render :show, status: :created, location: @job_listing }
-      else
-        format.html { render :new }
-        format.json { render json: @job_listing.errors, status: :unprocessable_entity }
-      end
+    if @job_listing.save
+      redirect_to applications_path, notice: "Your job application for #{@job_listing.title} has been saved."
+    else
+      render action: 'new'
     end
   end
 
@@ -69,6 +66,6 @@ class JobListingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def job_listing_params
-      params.require(:job_listing).permit(:company_id, :title, :description, :location, :url, :date_posted, :contact)
+      params.require(:job_listing).permit(:company_id, :title, :description, :location, :url, :date_posted, :contact, applications_attributes: [:id, :job_listing_id, :user_id, :resume, :cover_letter, :date_submitted, :status, :contact, :_destroy])
     end
 end
