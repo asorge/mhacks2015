@@ -1,0 +1,37 @@
+<h4><%= @application.job_listing.title %> Application Details:</h4>
+
+<b>Company:</b> <%= link_to @application.job_listing.company.name, "http://#{@application.job_listing.company.url}" %></a><br /><br />
+
+<b>Job listing title:</b> <%= link_to @application.job_listing.title, "http://#{@application.job_listing.url}" %><br /><br />
+
+<b>Job listing description:</b> <%= @application.job_listing.description %><br /><br />
+
+<b>Job location:</b> <%= @application.job_listing.location %><br /><br />
+
+<b>Job posted date:</b> <%= @application.job_listing.date_posted.strftime("%m/%d/%Y") %><br /><br />
+
+<b>Application submitted date:</b> <%= @application.date_submitted.strftime("%m/%d/%Y") %><br /><br />
+
+<b>Application status:</b> <%= @application.status %><br /><br />
+
+<b>Job listing contact:</b> <%= @application.job_listing.contact %><br /><br />
+
+<% unless @application.contact.blank? %>
+	<b>Application contact:</b> <%= @application.contact %><br /><br />
+<% end %>
+
+<b>Resume:</b>
+<% if @application.resume_url.nil? %>
+None uploaded.
+<% else %>
+<%= link_to "View submitted resume", @application.resume_url %>
+<% end %>
+<br><br>
+
+<b>Cover letter:</b>
+<% if @application.cover_letter_url.nil? %>
+None uploaded.
+<% else %>
+<%= link_to "View submitted cover letter", @application.cover_letter_url %>
+<% end %>
+<br><br>
