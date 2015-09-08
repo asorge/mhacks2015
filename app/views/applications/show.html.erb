@@ -12,12 +12,20 @@
 
 <p>
   <strong>Resume:</strong>
-  <%= link_to "Download Resume", @application.document_url %>
+  <% if @application.resume_url.nil? %>
+    None uploaded.
+  <% else %>
+    <%= link_to "View submitted resume", @application.resume_url %>
+  <% end %>
 </p>
 
 <p>
   <strong>Cover letter:</strong>
-  <%= @application.cover_letter %>
+  <% if @application.cover_letter_url.nil? %>
+    None uploaded.
+  <% else %>
+    <%= link_to "View submitted cover letter", @application.cover_letter_url %>
+  <% end %>
 </p>
 
 <p>
