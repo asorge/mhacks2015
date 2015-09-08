@@ -7,12 +7,24 @@ $( document ).ready(function() {
 	    selectMonths: true, // Creates a dropdown to control month
 	    selectYears: 15 // Creates a dropdown of 15 years to control year
 	});
+
+
 });
 
 function init() {
-	IN.User.authorize(logInSuccess());
-	$('#linkedinButton').click(function() {
-		IN.User.authorize(logInSuccess());
+	IN.User.authorize();
+
+
+
+	$('#logInImage').click(function() {
+		if (IN.User.isAuthorized()) {
+			console.log("yo");
+			$("p.introduction").append("<p>Already logged in with LinkedIn! Sign up with the link above!</p><br>");
+		}
+		else {
+			IN.User.authorize();
+		}
+		
 	});
 
 	$('#linkedinLogOut').click(function() {
@@ -24,9 +36,9 @@ function init() {
 	});
 }
 
-function logInSuccess() {
-	IN.Event.on(IN, "auth");
-}
+// function logInSuccess() {
+// 	IN.Event.on(IN, "auth");
+// }
 
 // Handle the successful return from the API call
 function onSuccess(data) {
