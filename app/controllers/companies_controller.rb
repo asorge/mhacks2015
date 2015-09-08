@@ -28,7 +28,7 @@ class CompaniesController < ApplicationController
     @company = Company.new(company_params)
 
     if @company.save
-      redirect_to user_interests_path, notice: "Your interest for ${@company.name} has been saved."
+      redirect_to user_interests_path, notice: "Your interest for #{@company.name} has been saved."
     else
       render action: 'new'
     end
