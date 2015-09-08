@@ -7,7 +7,7 @@
 			<b> <%= current_user.proper_name %> <br> <%= current_user.username %> </b>
 			<br>
 			<br>
-			<% if current_user.title.length > 0 %>
+			<% unless current_user.title.blank? %>
 				<%= current_user.title %>
 				<br>
 				<br>
@@ -17,6 +17,6 @@
 			<br>
 			<script>populateDashboard();</script>
 		</div>
-
 	</div>
+  </div>
 </div>
