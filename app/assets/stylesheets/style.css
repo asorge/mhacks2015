@@ -1,4 +1,16 @@
 html body {
   color: #555; }
 
+#login a:hover {
+	text-decoration: underline;
+}
+
+#login {
+	margin-left: 13px;
+}
+
+.content {
+  margin: 15px;
+}
+
 /*# sourceMappingURL=style.css.map */
