@@ -22,11 +22,11 @@ function logInSuccess() {
 function onSuccess(data) {
 
     $.each(data, function(key, value) {
-		console.log("key " + key);
-		console.log("value " + value);
 		if (key == "firstName" || key == "lastName" || key == "headline") {
+			console.log("key " + key);
+			console.log("value " + value);
 			var field = $("#" + value);
-			field.val(key);
+			field.value = key;
 		}
 	});
 
