@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
   get 'home/home'
 
+  # Routes for main resources
   resources :applications
   resources :job_listings
   resources :companies
   resources :user_interests
   resources :users
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -15,6 +17,12 @@ Rails.application.routes.draw do
   # Semi-static page routes
   get 'home' => 'home#home', as: :home
   get 'about' => 'home#about', as: :about
+
+  # Authentication routes
+  get 'user/edit' => 'users#edit', as: :edit_current_user
+  get 'signup' => 'users#new', as: :signup
+  get 'logout' => 'sessions#destroy', as: :logout
+  get 'login' => 'sessions#new', as: :login
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

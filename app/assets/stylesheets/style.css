@@ -6,4 +6,7 @@ html body h2#titlez {
   background-image: url("jobhacks.svg");
   background-size: 100%; }
 
+.col a, body a {
+  color: #0093a9; }
+
 /*# sourceMappingURL=style.css.map */

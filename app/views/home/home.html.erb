@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="container">
 		<h2 id="titlez">
 		</h2>
@@ -9,3 +10,11 @@
 		</p>
 	</div>
 </div>
+=======
+<% if !logged_in? %>
+	<!-- General home page for guests -->
+	<%= render :partial => 'general_home' %>
+<% elsif logged_in? %>
+	<%= render :partial => 'user_home' %>
+<% end %>
+>>>>>>> fa6c0ad5284ca03caf2d2bd5d074df8c49a385dd
