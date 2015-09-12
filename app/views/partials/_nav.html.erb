@@ -11,19 +11,19 @@
     
       <% end %>
       
-      <!-- CUSTOMER OPTIONS -->
-      <% if logged_in? && current_user.role?(:customer) %>
+      <!-- LOGGED IN USER OPTIONS -->
+      <% if logged_in? %>
         <!-- dropdown options for my account -->
         <ul id="dropdown1" class="dropdown-content">
-          <li><%= link_to "View My Account", customer_path(current_user.customer) %></li>
-          <li><%= link_to "Update My Account", edit_customer_path(current_user.customer) %></li>
-          <li><%= link_to "My Orders", orders_path %></li>
-          <li><%= link_to "My Addresses", addresses_path %></li>
+          <li><%= link_to "View My Account", user_path(current_user.id) %></li>
+          <li><%= link_to "Update My Account", edit_user_path(current_user.id) %></li>
+          <li><%= link_to "My Job Applications", applications_path %></li>
+          <li><%= link_to "My Companies", companies_path %></li>
         </ul>
         <!-- Dropdown Trigger -->
         <li><a class="dropdown-button" data-activates="dropdown1">My Account<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
 
-        <li><%= link_to "Shop", items_path %></li>
+        <li><%= link_to "Search", companies_path %></li>
       <% end %>
     </ul>
   </div>
@@ -34,7 +34,7 @@
   <br>
   <% if logged_in? %>
     <!-- only display the user's proper name if it exists in the system -->
-    Welcome, <%= current_user.customer.proper_name %>!
+    Welcome, <%= current_user.proper_name %>!
   <% else %>
     Welcome, Guest!
   <% end %>
