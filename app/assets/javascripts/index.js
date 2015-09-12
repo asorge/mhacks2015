@@ -27,8 +27,8 @@ function onSuccess(data) {
 			console.log("value " + value);
 			// var field = $("#" + value);
 			// console.log(field);
-			console.log(document.getElementById(value));
-			document.getElementById(value).value(value);
+			console.log(document.getElementById(key));
+			document.getElementById(key).value = value ;
 		}
 	});
 
