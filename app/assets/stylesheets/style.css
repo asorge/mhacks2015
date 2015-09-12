@@ -4,4 +4,19 @@ html body {
 .col a, body a {
   color: #0093a9; }
 
+h1, h2, h3, h4, h5, h6 {
+  color: #00838f; }
+
+.button a {
+  color: white; }
+
+#login {
+  margin-left: 13px; }
+
+.content {
+  margin: 15px; }
+
+.rounded-corners {
+  border-radius: 50px; }
+
 /*# sourceMappingURL=style.css.map */

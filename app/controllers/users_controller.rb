@@ -26,14 +26,12 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
 
-    respond_to do |format|
-      if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render :show, status: :created, location: @user }
-      else
-        format.html { render :new }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
+    if @user.save
+        # if a new user account has just been created, automatically log them into the system.
+        session[:user_id] = @user.user_id
+        redirect_to home_path, notice: "Welcome to JobHacks, #{@user.proper_name}!"
+    else
+      render action: 'new'
     end
   end
 
