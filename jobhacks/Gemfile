@@ -39,7 +39,7 @@ gem 'simple_form'
 gem 'nested_form', '0.3.2'
 gem 'validates_timeliness', '3.0.14'
 gem 'time_date_helpers', '0.0.2'
-gem "paperclip", "~> 4.3"
+gem 'carrierwave'
 
 gem 'bundler', '>= 1.7.0' # needed for rails-assets-materialize
 source 'https://rails-assets.org' do
