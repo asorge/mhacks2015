@@ -2,16 +2,16 @@
   <fieldset>
     <legend> <%= controller.action_name.capitalize %> Account </legend>
     <div class="input-field col s6">
-      <%= f.input :first_name %>
+      <%= f.input :first_name, html: { method: :put, id: "firstName" } %>
     </div>
     <div class="input-field col s6">
-      <%= f.input :last_name %>
+      <%= f.input :last_name, html: { method: :put, id: "lastName" } %>
     </div>
     <div class="input-field col s6">
-      <%= f.input :username %>
+      <%= f.input :username, html: { method: :put, id: "username" } %>
     </div>
     <div class="input-field col s6">
-      <%= f.input :email %>
+      <%= f.input :email, html: { method: :put, id: "email" } %>
     </div>
     <div class="input-field col s6">
       <%= f.input :password %>
@@ -20,10 +20,10 @@
       <%= f.input :password_confirmation %>
     </div>
     <div class="input-field col s6">
-      <%= f.input :title, label: "Current job title" %>
+      <%= f.input :title, label: "Current job title", html: { method: :put, id: "title" } %>
     </div>
     <div class="input-field col s6">
-      <%= f.input :phone %>
+      <%= f.input :phone, html: { method: :put, id: "phone" } %>
     </div>
   
     <!-- buttons -->
