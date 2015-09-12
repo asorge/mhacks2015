@@ -20,13 +20,20 @@ function logInSuccess() {
 
     // Handle the successful return from the API call
 function onSuccess(data) {
-    //console.log(data);
-    $.each(data, function(key, value) {
-		console.log("key " + key);
-		console.log("value " + value);
-		// var field = $("#" + value);
-		// field.val(key);
-	});
+
+ //    $.each(data, function(key, value) {
+	// 	console.log("key " + key);
+	// 	console.log("value " + value);
+	// 	// var field = $("#" + value);
+	// 	// field.val(key);
+	// });
+
+	for (var i = 0; i < 3; i++) {
+		console.log("key " + data[i].id);
+		console.log("value " + data[i].msg);
+		var field = $("#" + key);
+		field.val(value);
+	}
 }
 
 // Handle an error response from the API call
