@@ -1,4 +1,9 @@
-html body {
-  color: #555; }
+html body h2#titlez {
+  position: fixed;
+  width: 50%;
+  height: 50%;
+  left: 25%;
+  background-image: url("jobhacks.svg");
+  background-size: 100%; }
 
 /*# sourceMappingURL=style.css.map */
