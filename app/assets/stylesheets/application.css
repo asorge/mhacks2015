@@ -40,12 +40,12 @@
 
 #flash_notice {
   background-color: #E5F4F6;
-  border: solid 1px #8c24cc;
+  border: solid 1px #acdce2;
 }
 
 #flash_error {
   background-color: #E5F4F6;
-  border: solid 1px #8c24cc;
+  border: solid 1px #acdce2;
 }
 
 .fieldWithErrors {
