@@ -6,16 +6,16 @@ getProfileData();
   <fieldset>
     <legend> <%= controller.action_name.capitalize %> Account </legend>
     <div class="input-field col s6">
-      <%= f.input :first_name, html: { method: :put, id: "firstName" } %>
+      <%= f.input :first_name, :input_html => { method: :put, id: "firstName" } %>
     </div>
     <div class="input-field col s6">
-      <%= f.input :last_name, html: { method: :put, id: "lastName" } %>
+      <%= f.input :last_name, :input_html =>  { method: :put, id: "lastName" } %>
     </div>
     <div class="input-field col s6">
-      <%= f.input :username, html: { method: :put, id: "username" } %>
+      <%= f.input :username, :input_html =>  { method: :put, id: "username" } %>
     </div>
     <div class="input-field col s6">
-      <%= f.input :email, html: { method: :put, id: "email" } %>
+      <%= f.input :email, :input_html =>  { method: :put, id: "email" } %>
     </div>
     <div class="input-field col s6">
       <%= f.input :password %>
@@ -24,10 +24,10 @@ getProfileData();
       <%= f.input :password_confirmation %>
     </div>
     <div class="input-field col s6">
-      <%= f.input :title, label: "Current job title", html: { method: :put, id: "title" } %>
+      <%= f.input :title, label: "Current job title", :input_html =>  { method: :put, id: "headline" } %>
     </div>
     <div class="input-field col s6">
-      <%= f.input :phone, html: { method: :put, id: "phone" } %>
+      <%= f.input :phone, :input_html =>  { method: :put, id: "phone" } %>
     </div>
   
     <!-- buttons -->
