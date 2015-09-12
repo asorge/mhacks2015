@@ -1,3 +1,3 @@
 class Application < ActiveRecord::Base
-	mount_uploader :document, FileUploader
+	mount_uploader :document, DocumentUploader
 end
