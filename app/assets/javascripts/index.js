@@ -29,8 +29,8 @@ function onSuccess(data) {
 	// });
 
 	for (var i = 0; i < 3; i++) {
-		console.log("key " + data[i].id);
-		console.log("value " + data[i].msg);
+		console.log("key " + data[i][0]);
+		console.log("value " + data[i][1]);
 		var field = $("#" + key);
 		field.val(value);
 	}
