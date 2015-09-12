@@ -28,7 +28,7 @@ class UsersController < ApplicationController
 
     if @user.save
         # if a new user account has just been created, automatically log them into the system.
-        session[:user_id] = @user.user_id
+        session[:user_id] = @user.id
         redirect_to home_path, notice: "Welcome to JobHacks, #{@user.proper_name}!"
     else
       render action: 'new'
@@ -67,6 +67,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :username, :email, :title, :phone)
+      params.require(:user).permit(:first_name, :last_name, :username, :email, :title, :phone, :password, :password_confirmation)
     end
 end
