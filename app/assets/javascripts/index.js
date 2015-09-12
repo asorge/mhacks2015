@@ -21,20 +21,15 @@ function logInSuccess() {
     // Handle the successful return from the API call
 function onSuccess(data) {
 
- //    $.each(data, function(key, value) {
-	// 	console.log("key " + key);
-	// 	console.log("value " + value);
-	// 	// var field = $("#" + value);
-	// 	// field.val(key);
-	// });
+    $.each(data, function(key, value) {
+		console.log("key " + key);
+		console.log("value " + value);
+		if (key == "firstName" || key == "lastName" || key == "headline") {
+			var field = $("#" + value);
+			field.val(key);
+		}
+	});
 
-	for (var i = 0; i < 3; i++) {
-		console.log(data[i]);
-		// console.log("key " + data[i][0]);
-		// console.log("value " + data[i][1]);
-		var field = $("#" + key);
-		field.val(value);
-	}
 }
 
 // Handle an error response from the API call
