@@ -1,8 +1,34 @@
 html body {
   color: #555; }
 
+/*link styles*/
+.col a {
+	color: #0093a9;
+}
+
+body a {
+	color: #0093a9;
+}
+
 #login a:hover {
 	text-decoration: underline;
+}
+
+.col a:hover {
+	text-decoration: underline;
+}
+/*end link styles*/
+
+h1, h2, h3, h4, h5, h6 {
+	color: #00838f;
+}
+
+.button a {
+	color: white;
+}
+
+.button a:hover {
+	text-decoration: none;
 }
 
 #login {
@@ -106,6 +132,10 @@ hr.fancy2:after {
   font-size: 1.5em;
   padding: 0 0.25em;
   background: white;
+}
+
+.rounded-corners {
+  border-radius: 50px;
 }
 
 /*# sourceMappingURL=style.css.map */
