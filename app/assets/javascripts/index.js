@@ -5,16 +5,13 @@ $( document ).ready(function() {
 });
 
 function init() {
-	if (IN.User.isAuthorized()) {
-		$('#linkedinButton').click(function() {
-			IN.User.authorize(logInSuccess());
-		});
-	}
-	else {
-		$('#linkedinLogOut').click(function() {
-			IN.User.logout();
-		});
-	}
+	$('#linkedinButton').click(function() {
+		IN.User.authorize(logInSuccess());
+	});
+
+	$('#linkedinLogOut').click(function() {
+		IN.User.logout();
+	});
 }
 
 function logInSuccess() {
@@ -35,9 +32,10 @@ function onError(error) {
 
 // Use the API call wrapper to request the member's basic profile data
 function getProfileData() {
-    IN.API.Raw("/people/~").result(onSuccess).error(onError);
+    // IN.API.Raw("/people/~").result(onSuccess).error(onError);
     $.getJSON(IN.API.Raw("/people/~"), function(data) {
     	$.each(data, function(key, value) {
+    		console.log(value);
     		var field = $("#" + key);
     		if (field.length) {
     			field.val(value);
