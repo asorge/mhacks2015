@@ -26,6 +26,7 @@ function onSuccess(data) {
 			console.log("key " + key);
 			console.log("value " + value);
 			var field = $("#" + value);
+			console.log(field);
 			field.value = key;
 		}
 	});
