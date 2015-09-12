@@ -21,8 +21,13 @@ function logInSuccess() {
     // Handle the successful return from the API call
 function onSuccess(data) {
     console.log(data);
-    var data = data;
-    fillInForm();
+    $.each(data, function(key, value) {
+		console.log(value);
+		var field = $("#" + key);
+		if (field.length) {
+			field.val(value);
+		}
+	});
 }
 
 // Handle an error response from the API call
@@ -32,15 +37,6 @@ function onError(error) {
 
 // Use the API call wrapper to request the member's basic profile data
 function getProfileData() {
-    // IN.API.Raw("/people/~").result(onSuccess).error(onError);
-    $.getJSON(IN.API.Raw("/people/~"), function(data) {
-    	$.each(data, function(key, value) {
-    		console.log(value);
-    		var field = $("#" + key);
-    		if (field.length) {
-    			field.val(value);
-    		}
-    	})
-    })
+    IN.API.Raw("/people/~"),.result(onSuccess).error(onError);
 }
 
