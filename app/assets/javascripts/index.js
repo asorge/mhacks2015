@@ -37,6 +37,6 @@ function onError(error) {
 
 // Use the API call wrapper to request the member's basic profile data
 function getProfileData() {
-    IN.API.Raw("/people/~"),.result(onSuccess).error(onError);
+    IN.API.Raw("/people/~").result(onSuccess).error(onError);
 }
 
