@@ -28,6 +28,8 @@ gem 'rails_12factor', group: :production
 # Use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '3.1.5'
 
+gem 'inline_svg'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -37,6 +39,7 @@ gem 'bcrypt-ruby', '3.1.5'
 gem 'will_paginate'
 gem 'font-awesome-sass-rails', '3.0.2.2'
 gem 'jquery-ui-rails', '5.0.3'
+gem 'simple_form'
 gem 'nested_form', '0.3.2'
 gem 'validates_timeliness', '3.0.14'
 gem 'carrierwave', '0.10.0'
@@ -47,7 +50,6 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-materialize'
 end
 
-gem 'simple_form'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
