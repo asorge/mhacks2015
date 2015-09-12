@@ -1,9 +1,16 @@
 // MAIN JS FILE
 
 $( document ).ready(function() {
-	IN.User.authorize(init);
+	init();
 });
 
 function init() {
-	console.log("logged in");
+	$('#linkedinButton').click(function() {
+		console.log('linkedinButton click');
+		IN.User.authorize(logInSuccess());
+	});
+
+	function logInSuccess() {
+		alert('logged in!');
+	}
 }
