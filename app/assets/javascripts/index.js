@@ -28,7 +28,8 @@ function onSuccess(data) {
 			// var field = $("#" + value);
 			// console.log(field);
 			console.log(document.getElementById(key));
-			document.getElementById(key).value = value ;
+			document.getElementById(key).value = value;
+			$("label[for='" + key + "']").hide();
 		}
 	});
 
