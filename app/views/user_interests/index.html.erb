@@ -1,31 +1,41 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing User Interests</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Company</th>
-      <th>User</th>
-      <th>Rating</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @user_interests.each do |user_interest| %>
-      <tr>
-        <td><%= user_interest.company_id %></td>
-        <td><%= user_interest.user_id %></td>
-        <td><%= user_interest.rating %></td>
-        <td><%= link_to 'Show', user_interest %></td>
-        <td><%= link_to 'Edit', edit_user_interest_path(user_interest) %></td>
-        <td><%= link_to 'Destroy', user_interest, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New User interest', new_user_interest_path %>
+<div class="container">
+  <div class="row">
+    <div class="col s12 center">
+      <% if @current_user_interests.empty? %>
+        <p>
+          You don't have any company interests right now. <%= link_to "Add a company you're interested in", new_user_interest_path %> now!
+        </p>
+      <% else %>
+        <h4>Your Company Interests</h4>
+        <table class="striped centered">
+          <thead>
+            <tr>
+              <th width="100">Company Name</th>
+              <th width="225">Company Description</th>
+              <th width="250">Company URL</th>
+              <th width="100">Level of Interest</th>
+              <th width="100">&nbsp;</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @current_user_interests.each do |interest| %>
+              <tr>
+                <td><%= interest.company.name %></td>
+                <td><%= interest.company.description %></td>
+                <td><a href="<%= interest.company.url %>"><%= interest.company.url%></a></td>
+                <td><%= interest.rating %></td>
+                <td>
+                  <td><%= link_to 'Edit', edit_user_interest_path(interest) %></td>
+                  <td><%= link_to 'Destroy', user_interest, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <br>
+        <%= will_paginate @current_user_interests, previous_label: "Previous&nbsp;", next_label: "&nbsp;Next" %>  
+        <br>
+      <% end %>
+    </div>
+  </div>
+</div>
