@@ -15,17 +15,18 @@ function init() {
 }
 
 function logInSuccess() {
-	IN.Event.on(IN, "auth", getProfileData);
+	IN.Event.on(IN, "auth");
 }
 
     // Handle the successful return from the API call
 function onSuccess(data) {
     console.log(data);
     $.each(data, function(key, value) {
-		console.log(value);
-		var field = $("#" + key);
+		console.log(key);
+		var field = $("#" + value);
 		if (field.length) {
-			field.val(value);
+			field.val(key);
+			
 		}
 	});
 }
