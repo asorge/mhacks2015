@@ -25,9 +25,10 @@ function onSuccess(data) {
 		if (key == "firstName" || key == "lastName" || key == "headline") {
 			console.log("key " + key);
 			console.log("value " + value);
-			var field = $("#" + value);
-			console.log(field);
-			field.value = key;
+			// var field = $("#" + value);
+			// console.log(field);
+			console.log(document.getElementById(value));
+			document.getElementById(value).value(value);
 		}
 	});
 
