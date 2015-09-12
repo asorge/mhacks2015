@@ -1,0 +1,16 @@
+development:
+  adapter: postgresql
+  database: jobhacksdev
+  pool: 5
+  timeout: 5000
+test:
+  adapter: postgresql
+  database: jobhackstest
+  pool: 5
+  timeout: 5000
+
+production:
+  adapter: postgresql
+  database: jobhacksprod
+  pool: 5
+  timeout: 5000
