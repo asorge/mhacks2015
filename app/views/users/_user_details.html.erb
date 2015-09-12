@@ -1,0 +1,18 @@
+<h4>Your Profile:</h4>
+
+<b>Username:</b> <%= @user.username %><br />
+(Loyal JobHacks user since <%= @user.created_at.year %>.)<br /><br />
+
+<b>First name:</b> <%= @user.first_name %><br /><br />
+
+<b>Last name:</b> <%= @user.last_name %><br /><br />
+
+<b>Email:</b> <%= @user.email %><br /><br />
+
+<% unless @user.title.blank? %>
+<b>Current job title:</b> <%= @user.title %><br /><br />
+<% end %>
+
+<% unless @user.phone.blank? %>
+<b>Phone:</b> <%= @user.phone %><br /><br />
+<% end %>

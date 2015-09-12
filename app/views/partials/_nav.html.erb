@@ -15,15 +15,14 @@
       <% if logged_in? %>
         <!-- dropdown options for my account -->
         <ul id="dropdown1" class="dropdown-content">
-          <li><%= link_to "View My Account", user_path(current_user.id) %></li>
-          <li><%= link_to "Update My Account", edit_user_path(current_user.id) %></li>
+          <li><%= link_to "My Profile", user_path(current_user.id) %></li>
           <li><%= link_to "My Job Applications", applications_path %></li>
           <li><%= link_to "My Companies", companies_path %></li>
         </ul>
         <!-- Dropdown Trigger -->
         <li><a class="dropdown-button" data-activates="dropdown1">My Account<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
 
-        <li><%= link_to "Search", companies_path %></li>
+        <li><%= link_to "Search Companies", companies_path %></li>
       <% end %>
     </ul>
   </div>
