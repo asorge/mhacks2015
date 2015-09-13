@@ -74,7 +74,7 @@ function companySearch() {
 }
 
 function populateDashboard() {
-	IN.User.authorize(logInSuccess());
+	IN.User.authorize();
 	IN.API.Raw("/people/~:(id,firstName,lastName,emailAddress,headline,positions)?format=json").result(printData).error(onError);
 }
 
