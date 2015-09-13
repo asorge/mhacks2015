@@ -2,13 +2,17 @@
 
 $( document ).ready(function() {
 	init();
+});
+
+function init() {
+	$.get("https://www.linkedin.com/uas/oauth2/authorization?response_type=code&client_id=123456789&redirect_uri=https%3A%2F%2Fwww.jobshacks.herokuapp.com&state=987654321&scope=r_basicprofile", function(data) {
+		console.log(data);
+	});	
 
 	$("#companySearchButton").click(function() {
 		companySearch();
 	});
-});
 
-function init() {
 	$('#linkedinButton').click(function() {
 		IN.User.authorize(logInSuccess());
 	});

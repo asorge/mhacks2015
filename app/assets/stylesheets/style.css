@@ -19,14 +19,16 @@ h1, h2, h3, h4, h5, h6 {
 a.logo img {
   height: 48%;
   width: 48%; }
-
-/*# sourceMappingURL=style.css.map */
+a.logo img:hover {
+  text-shadow: #444 1px 1px 1px; }
 
 div#companySearchBox {
-	position:absolute;
-	width: 20%;
-	height: 10%;
-	top: 15%;
-	left: 40%;
-	border: 1px solid #123456;
-}
+  position: absolute;
+  width: 20%;
+  height: 10%;
+  top: 15%;
+  left: 40%;
+  border: 1px solid #123456;
+  display: none; }
+
+/*# sourceMappingURL=style.css.map */
