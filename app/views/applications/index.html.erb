@@ -14,6 +14,7 @@
               <th>Job Listing Title</th>
               <th>Job Listing URL</th>
               <th>Job Description</th>
+              <th>Application Date</th>
               <th>Status</th>
               <th>&nbsp;</th>
             </tr>
@@ -25,6 +26,7 @@
                 <td><%= application.job_listing.title %></td>
                 <td><%= link_to application.job_listing.url, "http://#{application.job_listing.url}" %></a></td>
                 <td><%= application.job_listing.description %></td>
+                <td><%= application.date_submitted.strftime("%m/%d/%Y") %></td>
                 <td><%= application.status %></td>
                 <td><a class="btn-floating btn-small waves-effect waves-light cyan lighten-3" href="applications/<%= application.id %>"><i class="mdi-action-visibility"></i></a></td>
                 <td><a class="btn-floating btn-small waves-effect waves-light cyan lighten-3" href="job_listings/<%= application.job_listing_id %>/edit"><i class="mdi-image-edit"></i></a></td>

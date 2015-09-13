@@ -1,47 +1,11 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row">
+    <div class="col s12 center">
+      <%= render partial: "application_details" %>
+      <br>
 
-<p>
-  <strong>User:</strong>
-  <%= @application.user_id %>
-</p>
-
-<p>
-  <strong>Job listing:</strong>
-  <%= @application.job_listing_id %>
-</p>
-
-<p>
-  <strong>Resume:</strong>
-  <% if @application.resume_url.nil? %>
-    None uploaded.
-  <% else %>
-    <%= link_to "View submitted resume", @application.resume_url %>
-  <% end %>
-</p>
-
-<p>
-  <strong>Cover letter:</strong>
-  <% if @application.cover_letter_url.nil? %>
-    None uploaded.
-  <% else %>
-    <%= link_to "View submitted cover letter", @application.cover_letter_url %>
-  <% end %>
-</p>
-
-<p>
-  <strong>Date submitted:</strong>
-  <%= @application.date_submitted %>
-</p>
-
-<p>
-  <strong>Status:</strong>
-  <%= @application.status %>
-</p>
-
-<p>
-  <strong>Contact:</strong>
-  <%= @application.contact %>
-</p>
-
-<%= link_to 'Edit', edit_application_path(@application) %> |
-<%= link_to 'Back', applications_path %>
+      <!-- Button for editing application -->
+      <div class="button"><%= link_to 'Update Application', edit_job_listing_path(@application.job_listing_id), :class => 'btn waves-effect waves-light cyan lighten-3' %></div>
+  </div>
+  </div>
+</div>

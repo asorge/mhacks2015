@@ -13,5 +13,5 @@ class Application < ActiveRecord::Base
 
 	# Scopes
 	scope :by_status, -> { order(:status) }
-	scope :by_date, -> { order(:date_submitted) }
+	scope :by_date, -> { order(date_submitted: :desc) }
 end
