@@ -3,13 +3,19 @@
   <div class="nav-wrapper cyan lighten-4">
     <%= link_to image_tag("jobhacks.png"), home_path, :class => "brand-logo left logo" %> 
     <ul class="right">
-      <li>
+      
         <div id="login">
+          <ul class="left">
+          Welcome, <%= current_user.proper_name %>!
+          </ul>
           <% if logged_in? %>
             <!-- only display the user's proper name if it exists in the system -->
-            Welcome, <%= current_user.proper_name %>! | <%= link_to 'Log out', logout_path %>
+            <li><%= link_to 'Log out', logout_path %></li>
+            <li><a class="dropdown-button" data-activates="dropdown1">My Account<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
           <% else %>
-            Welcome, Guest! | <%= link_to 'Log in', login_path %> | <%= link_to "Sign up", signup_path %>
+            <ul class = "left">Welcome, Guest!</ul>
+            <li><%= link_to 'Log in', login_path %></li>
+            <li><%= link_to "Sign up", signup_path %></li>
           <% end %>
         </div>
       </li>
@@ -22,8 +28,6 @@
           <li><%= link_to "My Job Applications", applications_path %></li>
           <li><%= link_to "My Company Interests", user_interests_path %></li>
         </ul>
-        <!-- Dropdown Trigger -->
-        <li><a class="dropdown-button" data-activates="dropdown1">My Account<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
       <% end %>
     </ul>
 
