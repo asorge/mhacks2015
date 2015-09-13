@@ -15,6 +15,7 @@ class CompaniesController < ApplicationController
   # GET /companies/new
   def new
     @company = Company.new
+    @company.user_interests.build
   end
 
   # GET /companies/1/edit
@@ -26,14 +27,10 @@ class CompaniesController < ApplicationController
   def create
     @company = Company.new(company_params)
 
-    respond_to do |format|
-      if @company.save
-        format.html { redirect_to @company, notice: 'Company was successfully created.' }
-        format.json { render :show, status: :created, location: @company }
-      else
-        format.html { render :new }
-        format.json { render json: @company.errors, status: :unprocessable_entity }
-      end
+    if @company.save
+      redirect_to user_interests_path, notice: "Your interest for ${@company.name} has been saved."
+    else
+      render action: 'new'
     end
   end
 
@@ -69,6 +66,6 @@ class CompaniesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def company_params
-      params.require(:company).permit(:name, :url, :description, :location)
+      params.require(:company).permit(:name, :url, :description, :location, user_interests_attributes: [:id, :company_id, :user_id, :rating, :_destroy])
     end
 end

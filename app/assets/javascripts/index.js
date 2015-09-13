@@ -22,7 +22,7 @@ function logInSuccess() {
 	IN.Event.on(IN, "auth");
 }
 
-    // Handle the successful return from the API call
+// Handle the successful return from the API call
 function onSuccess(data) {
 
     $.each(data, function(key, value) {

@@ -3,35 +3,35 @@
     <div class="col s12 center">
       <% if @current_user_interests.empty? %>
         <p>
-          You don't have any company interests right now. <%= link_to "Add a company you're interested in", new_user_interest_path %> now!
+          You don't have any company interests right now. <%= link_to "Add a company you're interested in", new_company_path %> now!
         </p>
       <% else %>
         <h4>Your Company Interests</h4>
         <table class="striped centered">
           <thead>
             <tr>
-              <th width="100">Company Name</th>
-              <th width="225">Company Description</th>
-              <th width="250">Company URL</th>
-              <th width="100">Level of Interest</th>
-              <th width="100">&nbsp;</th>
+              <th>Company Name</th>
+              <th>Company Description</th>
+              <th>Company URL</th>
+              <th>Level of Interest</th>
+              <th>&nbsp;</th>
             </tr>
           </thead>
           <tbody>
             <% @current_user_interests.each do |interest| %>
               <tr>
-                <td><%= interest.company.name %></td>
+                <td><%= link_to interest.company.name %></td>
                 <td><%= interest.company.description %></td>
-                <td><a href="<%= interest.company.url %>"><%= interest.company.url%></a></td>
-                <td><%= interest.rating %></td>
-                <td>
-                  <td><%= link_to 'Edit', edit_user_interest_path(interest) %></td>
-                  <td><%= link_to 'Destroy', user_interest, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                </td>
+                <td><%= link_to interest.company.url, "http://#{interest.company.url}" %></a></td>
+                <td><%= number_with_precision(interest.rating, :precision => 0) %></td>
+                <td><a class="btn-floating btn-small waves-effect waves-light cyan lighten-3" href="companies/<%= interest.company_id %>/edit"><i class="mdi-image-edit"></i></a></td>
               </tr>
             <% end %>
           </tbody>
         </table>
+
+        <br>
+        <div class="button"><%= link_to 'Add A New Interest', new_company_path, :class => 'btn cyan lighten-3' %></div>
         <br>
         <%= will_paginate @current_user_interests, previous_label: "Previous&nbsp;", next_label: "&nbsp;Next" %>  
         <br>
