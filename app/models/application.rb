@@ -1,6 +1,7 @@
 class Application < ActiveRecord::Base
 	# Document uploader for resume and cover letter
-	mount_uploader :resume, DocumentUploader
+	mount_uploader :resume, ResumeUploader
+	mount_uploader :cover_letter, CoverLetterUploader
 
 	# Validations
 	validates_presence_of :date_submitted, :status
