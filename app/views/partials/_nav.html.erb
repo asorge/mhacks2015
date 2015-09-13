@@ -3,13 +3,16 @@
   <div class="nav-wrapper cyan lighten-4">
     <%= link_to image_tag("jobhacks.png"), home_path, :class => "brand-logo left logo" %> 
     <ul class="right">
-      <!-- link to home -->
-      <li><%= link_to "Home", home_path %></li>
-
-      <!-- GUEST OPTIONS -->
-      <% if !logged_in? %>
-    
-      <% end %>
+      <li>
+        <div id="login">
+          <% if logged_in? %>
+            <!-- only display the user's proper name if it exists in the system -->
+            Welcome, <%= current_user.proper_name %>! | <%= link_to 'Log out', logout_path %>
+          <% else %>
+            Welcome, Guest! | <%= link_to 'Log in', login_path %> | <%= link_to "Sign up", signup_path %>
+          <% end %>
+        </div>
+      </li>
       
       <!-- LOGGED IN USER OPTIONS -->
       <% if logged_in? %>
@@ -23,16 +26,6 @@
         <li><a class="dropdown-button" data-activates="dropdown1">My Account<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
       <% end %>
     </ul>
+
   </div>
 </nav>
-
-<!-- The welcome/log in/sign up bar below the navbar -->
-<div id="login">
-  <br>
-  <% if logged_in? %>
-    <!-- only display the user's proper name if it exists in the system -->
-    Welcome, <%= current_user.proper_name %>! | <%= link_to 'Log out', logout_path %>
-  <% else %>
-    Welcome, Guest! | <%= link_to 'Log in', login_path %> | <%= link_to "Sign up", signup_path %>
-  <% end %>
-</div>

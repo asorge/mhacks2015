@@ -25,9 +25,9 @@ function logInSuccess() {
 
 // Handle the successful return from the API call
 function onSuccess(data) {
-
+	console.log(data);
     $.each(data, function(key, value) {
-		if (key == "firstName" || key == "lastName" || key == "headline") {
+		if (key == "firstName" || key == "lastName" || key == "headline" || key == "emailAddress") {
 			document.getElementById(key).value = value;
 			$("label[for='" + key + "']").hide();
 		}
@@ -42,13 +42,27 @@ function onError(error) {
 
 // Use the API call wrapper to request the member's basic profile data
 function getProfileData() {
-    IN.API.Raw("/people/~").result(onSuccess).error(onError);
+    IN.API.Raw("/people/~:(id,firstName,lastName,emailAddress,headline,positions)?format=json").result(onSuccess).error(onError);
 }
 
 function companySearch() {
 	var companyName = document.getElementById("companySearchBox").value;
 	console.log(companyName);
-	$.get("https://api.linkedin.com/v1/company-search?keywords={" + companyName + "}", function(data) {
+	IN.API.Raw("/company/~").result(function(data) {
 		console.log(data);
-	});	
+	});
+	// $.get("https://api.linkedin.com/v1/company-search?keywords={" + companyName + "}", function(data) {
+	// 	console.log(data);
+	// });	
+}
+
+function populateDashboard() {
+	IN.User.authorize(logInSuccess());
+	IN.API.Raw("/people/~:(id,firstName,lastName,emailAddress,headline,positions)?format=json").result(printData).error(onError);
+}
+
+
+function printData(data) {
+	console.log(data);
+	$("#dashboard").append(data);
 }

@@ -22,13 +22,21 @@ a.logo img {
 a.logo img:hover {
   text-shadow: #444 1px 1px 1px; }
 
-div#companySearchBox {
+nav ul li a {
+  display: inline-block;
+  list-style: none; }
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%; }
+
+div#dashboard {
   position: absolute;
-  width: 20%;
-  height: 10%;
-  top: 15%;
-  left: 40%;
-  border: 1px solid #123456;
-  display: none; }
+  width: 70%;
+  height: 45%;
+  border: 1px dotted cyan;
+  color: #666;
+  font-size: 2em; }
 
 /*# sourceMappingURL=style.css.map */
