@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
 
   	# Relationships
   	has_many :user_interests
+  	has_many :applications
 
 	# Validations
   	validates_presence_of :last_name, :first_name, :email

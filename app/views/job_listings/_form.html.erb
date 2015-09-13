@@ -1,45 +1,82 @@
-<%= form_for(@job_listing) do |f| %>
-  <% if @job_listing.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@job_listing.errors.count, "error") %> prohibited this job_listing from being saved:</h2>
+<%= simple_nested_form_for @job_listing, :html => { :class => 'form-horizontal' } do |job_form| %>
+  <fieldset>
+    <legend>Save a job application to your account</legend>
 
-      <ul>
-      <% @job_listing.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <div class="row">
+      <h5>Job listing details:</h5>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :company_id %><br>
-    <%= f.number_field :company_id %>
-  </div>
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
-  </div>
-  <div class="field">
-    <%= f.label :location %><br>
-    <%= f.text_field :location %>
-  </div>
-  <div class="field">
-    <%= f.label :url %><br>
-    <%= f.text_field :url %>
-  </div>
-  <div class="field">
-    <%= f.label :date_posted %><br>
-    <%= f.date_select :date_posted %>
-  </div>
-  <div class="field">
-    <%= f.label :contact %><br>
-    <%= f.text_field :contact %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="input-field col s6">
+      <%= job_form.association :company, collection: Company.alphabetical.all, prompt: "Select a company" %>
+    </div>
+
+    <div class="input-field col s6">
+      <%= job_form.input :title, label: "Job listing title" %>
+    </div>
+
+    <div class="input-field col s12">
+      <%= job_form.input :url, label: "Job listing URL" %>
+    </div>
+
+    <div class="input-field col s12">
+      <%= job_form.input :description, label: "Job description" %>
+    </div>
+
+    <div class="input-field col s6">
+      <%= job_form.input :location, label: "Job location" %>
+    </div>    
+
+    <div class="input-field col s6">
+      <%= job_form.input :contact, label: "Job listing contact" %>
+    </div>    
+
+    <div class="input-field col s12">
+      <%= job_form.input :date_posted, label: "Job listing post date" %>
+    </div>    
+
+    <%= job_form.simple_fields_for :applications do |application_form| %>
+      <div class="fields">
+          <!-- Set the hidden input user id for the new user interest object -->
+          <%= application_form.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
+          
+          &nbsp;
+          <div class="row">
+            <h5 class="margin-top-15">Application details:</h5>
+          </div>
+
+
+          <div class="input-field col s12">
+            <%= application_form.label :resume, label: "Resume submitted" %><br />
+            <%= application_form.file_field :resume %>
+          </div>
+
+          <div class="input-field col s12">
+            <%= application_form.label :cover_letter, label: "Cover letter submitted" %><br />
+            <%= application_form.file_field :cover_letter %>
+          </div>
+
+          <div class="input-field col s12">
+            <%= application_form.input :date_submitted, label: "Application date submitted" %>
+          </div>
+
+          <div class="input-field col s6">
+            <%= application_form.input :status, label: "Application status (submitted, interviewing, etc)" %>
+          </div>
+
+          <div class="input-field col s6">
+            <%= application_form.input :contact, label: "Application contact (if different from above)" %>
+          </div>
+      </div>
+    <% end %>
+
+    &nbsp;
+
+    <!-- buttons -->
+    <div class="form-actions row">
+      <div class="col s12">
+        <%= job_form.submit "Submit", class: 'btn cyan lighten-3' %><br><br>
+        <div class="button"><%= link_to 'Back', home_path, :class => 'btn cyan lighten-3' %></div>
+      </div>
+    </div>
+  </fieldset>
 <% end %>

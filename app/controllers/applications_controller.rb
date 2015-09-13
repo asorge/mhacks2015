@@ -4,7 +4,7 @@ class ApplicationsController < ApplicationController
   # GET /applications
   # GET /applications.json
   def index
-    @applications = Application.all
+    @current_user_applications = current_user.applications.by_date.paginate(:page => params[:page]).per_page(10)
   end
 
   # GET /applications/1

@@ -20,10 +20,10 @@
           <tbody>
             <% @current_user_interests.each do |interest| %>
               <tr>
-                <td><%= link_to interest.company.name %></td>
+                <td><%= interest.company.name %></td>
                 <td><%= interest.company.description %></td>
                 <td><%= link_to interest.company.url, "http://#{interest.company.url}" %></a></td>
-                <td><%= number_with_precision(interest.rating, :precision => 0) %></td>
+                <td><%= interest.rating %></td>
                 <td><a class="btn-floating btn-small waves-effect waves-light cyan lighten-3" href="companies/<%= interest.company_id %>/edit"><i class="mdi-image-edit"></i></a></td>
               </tr>
             <% end %>
