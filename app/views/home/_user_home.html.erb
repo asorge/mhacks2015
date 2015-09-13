@@ -4,11 +4,12 @@
     <script>populateDashboard();</script>
     	<%= image_tag 'jobhacks2.png', class: "center" %> 
 		<div class = "col s6 center z-depth-3" id="dashboard">
-			<b> <%= current_user.proper_name %> || <%= current_user.user_name %> </b>
+			<b> <%= current_user.proper_name %> || <%= current_user.username %> </b>
 			<br>
 			<i><%= current_user.title %></i>
 			<br>
-			<a class="waves-effect waves-light btn cyan lighten-3">Open LinkedIn Profile</a>
+			<a href=""class="waves-effect waves-light btn cyan lighten-3">Open LinkedIn Profile</a>
+			<br>
 		</div>
 
 	</div>
